@@ -52,9 +52,11 @@ const ModalTarea = ({ mostrar, tarea, onOcultar, onGuardar }: ModalTareaProps) =
               <Modal.Title>{tarea ? 'Editar tarea' : 'Nueva tarea'}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <Form.Group className="mb-3" controlId="titulo">
-                <Form.Label>Título</Form.Label>
+              <Form.Group className="mb-3">
+                <Form.Label htmlFor="titulo">Título</Form.Label>
                 <Form.Control
+                  id="titulo"
+                  aria-label="Título"
                   name="titulo"
                   value={values.titulo}
                   onChange={handleChange}
@@ -67,9 +69,11 @@ const ModalTarea = ({ mostrar, tarea, onOcultar, onGuardar }: ModalTareaProps) =
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="descripcion">
-                <Form.Label>Descripción</Form.Label>
+              <Form.Group className="mb-3">
+                <Form.Label htmlFor="descripcion">Descripción</Form.Label>
                 <Form.Control
+                  id="descripcion"
+                  aria-label="Descripción"
                   as="textarea"
                   rows={3}
                   name="descripcion"
@@ -85,9 +89,11 @@ const ModalTarea = ({ mostrar, tarea, onOcultar, onGuardar }: ModalTareaProps) =
               </Form.Group>
 
               <div className="row">
-                <Form.Group className="col-sm-6 mb-3" controlId="prioridad">
-                  <Form.Label>Prioridad</Form.Label>
+                <Form.Group className="col-sm-6 mb-3">
+                  <Form.Label htmlFor="prioridad">Prioridad</Form.Label>
                   <Form.Select
+                    id="prioridad"
+                    aria-label="Prioridad"
                     name="prioridad"
                     value={values.prioridad}
                     onChange={handleChange}
@@ -103,9 +109,11 @@ const ModalTarea = ({ mostrar, tarea, onOcultar, onGuardar }: ModalTareaProps) =
                   </Form.Control.Feedback>
                 </Form.Group>
 
-                <Form.Group className="col-sm-6 mb-3" controlId="fechaLimite">
-                  <Form.Label>Fecha límite</Form.Label>
+                <Form.Group className="col-sm-6 mb-3">
+                  <Form.Label htmlFor="fechaLimite">Fecha límite</Form.Label>
                   <Form.Control
+                    id="fechaLimite"
+                    aria-label="Fecha límite"
                     type="date"
                     name="fechaLimite"
                     value={values.fechaLimite}

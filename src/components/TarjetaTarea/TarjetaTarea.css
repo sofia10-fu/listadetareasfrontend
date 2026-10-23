@@ -1,0 +1,20 @@
+.tarea-card {
+  border-color: #e4e9e9;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgb(32 42 62 / 5%);
+}
+
+.tarea-card-titulo {
+  color: #202a3e;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.tarea-fecha {
+  font-size: 0.875rem;
+}
+
+.tarea-card-completada .tarea-card-titulo {
+  color: #65706e;
+  text-decoration: line-through;
+}

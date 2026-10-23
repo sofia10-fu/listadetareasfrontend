@@ -1,32 +1,55 @@
-# React + TypeScript + Vite
+# Mis tareas
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicación sencilla para organizar tareas. Este frontend usa React, TypeScript y Vite, y se conecta a la API de [listadetareas](https://github.com/sofia10-fu/listadetareas).
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js y npm.
+- MongoDB ejecutándose en local, como espera la configuración actual de la API.
+- El backend `listadetareas` iniciado en `http://localhost:3000`.
 
-## React Compiler
+## Iniciar el proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Primero, inicia la API desde su carpeta:
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+cd listadetareas
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Después, desde esta carpeta del frontend:
+
+```bash
+npm install
+npm run dev
+```
+
+Abre la dirección que muestre Vite (normalmente `http://localhost:5173`). Vite redirige las solicitudes `/api` al backend local en el puerto `3000`.
+
+## Comandos
+
+| Comando | Para qué sirve |
+| --- | --- |
+| `npm run dev` | Inicia el servidor de desarrollo |
+| `npm run build` | Comprueba TypeScript y genera `dist/` |
+| `npm run preview` | Previsualiza la versión compilada |
+| `npm run lint` | Revisa el código con Oxlint |
+
+## Estructura
+
+```text
+src/
+├── components/
+│   ├── BarraNavegacion/
+│   ├── ListaTareas/
+│   ├── ModalTarea/
+│   └── TarjetaTarea/
+├── pages/
+│   ├── PaginaInicio/
+│   └── PaginaTareas/
+├── services/       # Solicitudes Axios a la API
+├── types/          # Tipo Tarea según el backend
+├── App.tsx          # Rutas de la aplicación
+└── main.tsx         # Punto de entrada de React
+```

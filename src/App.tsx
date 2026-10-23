@@ -1,5 +1,7 @@
-import { Container } from 'react-bootstrap'
+import { Route, Routes } from 'react-router-dom'
 import BarraNavegacion from './components/BarraNavegacion/BarraNavegacion'
+import PaginaInicio from './pages/PaginaInicio/PaginaInicio'
+import PaginaTareas from './pages/PaginaTareas/PaginaTareas'
 import './App.css'
 
 function App() {
@@ -7,10 +9,10 @@ function App() {
     <>
       <BarraNavegacion />
       <main className="app-main">
-        <Container className="py-5">
-          <h1>Organiza tus tareas</h1>
-          <p>Un espacio sencillo para tener presente lo que necesitas hacer.</p>
-        </Container>
+        <Routes>
+          <Route path="/" element={<PaginaInicio />} />
+          <Route path="/tareas" element={<PaginaTareas />} />
+        </Routes>
       </main>
     </>
   )

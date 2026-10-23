@@ -1,0 +1,10 @@
+.tareas-vacio {
+  border: 1px dashed #ccd5d4;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.tareas-vacio-icono {
+  color: #258577;
+  font-size: 2.5rem;
+}
