@@ -1,0 +1,9 @@
+.modal-content {
+  border: 0;
+  border-radius: 14px;
+}
+
+.modal-title {
+  color: #202a3e;
+  font-weight: 700;
+}
