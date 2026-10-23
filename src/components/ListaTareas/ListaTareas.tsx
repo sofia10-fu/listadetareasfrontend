@@ -15,6 +15,7 @@ import './ListaTareas.css'
 const ListaTareas = () => {
   const [tareas, setTareas] = useState<Tarea[]>([])
   const [cargando, setCargando] = useState(true)
+  const [errorCarga, setErrorCarga] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [mostrarModal, setMostrarModal] = useState(false)
   const [tareaSeleccionada, setTareaSeleccionada] = useState<Tarea | null>(null)
@@ -23,7 +24,7 @@ const ListaTareas = () => {
     obtenerTareas()
       .then(setTareas)
       .catch(() =>
-        setError('No se pudieron cargar las tareas. Comprueba que la API esté iniciada.'),
+        setErrorCarga('No se pudieron cargar las tareas. Comprueba que la API esté iniciada.'),
       )
       .finally(() => setCargando(false))
   }, [])
@@ -90,7 +91,7 @@ const ListaTareas = () => {
           <p className="text-secondary mb-0">
             {cargando
               ? 'Cargando tus tareas...'
-              : error && tareas.length === 0
+              : errorCarga
                 ? 'Verifica la conexión con la API.'
                 : tareas.length === 0
               ? 'Agrega una tarea para comenzar.'
@@ -103,7 +104,7 @@ const ListaTareas = () => {
         </Button>
       </div>
 
-      {error && tareas.length > 0 && (
+      {error && (
         <Alert variant="danger" dismissible onClose={() => setError(null)}>
           {error}
         </Alert>
@@ -114,7 +115,7 @@ const ListaTareas = () => {
           <Spinner animation="border" variant="primary" />
           <p className="mt-3 text-secondary">Cargando tareas...</p>
         </div>
-      ) : error ? (
+      ) : errorCarga ? (
         <Card className="tareas-vacio text-center">
           <Card.Body className="py-5">
             <i className="bi bi-cloud-slash tareas-vacio-icono" aria-hidden="true" />
