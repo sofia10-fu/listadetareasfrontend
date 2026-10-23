@@ -1,7 +1,7 @@
 import axios from 'axios'
 import type { DatosTarea, Tarea } from '../types/Tarea'
 
-const BASE_URL = '/api/tareas'
+const BASE_URL = 'http://localhost:3000/api/tareas'
 
 export const obtenerTareas = async (): Promise<Tarea[]> => {
   const respuesta = await axios.get<Tarea[]>(BASE_URL)
